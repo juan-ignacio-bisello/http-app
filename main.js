@@ -2,6 +2,7 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
+import { BreackingBadApp } from './src/breackingbad/breacking-bad.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -13,7 +14,10 @@ document.querySelector('#app').innerHTML = `
     </a>
     <h1 id="app-title">Hello Vite!</h1>
     <div class="card">
-      <button id="counter" type="button"></button>
+      
     </div>
   </div>
 `
+const element = document.querySelector('.card');
+
+BreackingBadApp( element );
