@@ -20,4 +20,5 @@ document.querySelector('#app').innerHTML = `
 `
 const element = document.querySelector('.card');
 
-BreackingBadApp( element );
+// BreackingBadApp( element );
+
