@@ -21,7 +21,21 @@ export const BreackingBadApp = async( element ) => {
     
     element.innerHTML = 'Loading...';
 
-    const quote = await fetchQuote();
+    // const quote = await fetchQuote();
 
-    element.innerHTML = 'Hay datos';
+    const quoteLabel = document.createElement('blockquote');
+    const authorLabel = document.createElement('h3');
+    const nextQuoteButton = document.createElement('button');
+
+    nextQuoteButton.innerText = 'Next Quote';
+
+    const renderQuote = ( data ) => {
+        quoteLabel.innerHTML = data.quote;
+        authorLabel.innerHTML = data.author;
+
+        element.replaceChildren( quoteLabel, authorLabel, nextQuoteButton );
+    }
+
+    fetchQuote()
+    .then( renderQuote)
 }
