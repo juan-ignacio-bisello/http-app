@@ -54,6 +54,8 @@ export const renderTable = ( element ) => {
             </td>
         </tr>
         `;
+
+        table.querySelector('tbody').innerHTML = tableHTML;
     })
 
 }
