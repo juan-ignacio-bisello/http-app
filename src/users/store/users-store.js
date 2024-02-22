@@ -23,13 +23,34 @@ const loadPreviusPage = async() => {
     state.currentPage = state.currentPage - 1;
     state.users = users;
 }
+/**
+ * 
+ * @param {User} user 
+ */
+const onUserChanged = ( updatedUser ) => {
 
-const onUserChanged = () => {
-    throw new Error('no implementado');
+    let wasFound = false;
+    
+    state.users = state.users.map( user => {
+        if ( user.id === updatedUser.id ) {
+            wasFound = true
+            return updatedUser;
+        }
+        return user;
+    });
+
+    if ( state.users.length < 10 && !wasFound ) {
+        state.users.push( updatedUser );
+    }
 }
 
 const reloadPage = async() => {
-    throw new Error('no implementado');
+    const users = await loadUserByPage( state.currentPage );
+    if ( users.length === 0 ) {
+        await loadPreviusPage();
+        return;
+    };
+    state.users = users;
 }
 
 
